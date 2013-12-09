@@ -8,6 +8,7 @@ Install via rubygems
 ```
 $ gem install btcl
 ```
+
 # Usage
 Retrieve the prices from the top exchanges.
 ```
@@ -17,7 +18,7 @@ $ btcl
 
 Quickly retrieve the ask price from a single exchange. The first argument is the symbol used on bitcoincharts.com (see all market symbols at bitcoincharts.com/markets/).
 ```
-$ btcl mtgoxUSB
+$ btcl mtgoxUSD
 ```
 ![Alt text](/public/2.png)
 
