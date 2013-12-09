@@ -27,19 +27,19 @@ def getTop(url)
 	exchanges = []
 	names = []
 	begin
-		open(url) do |d|
-			json = JSON.parse(d.read)
-			$top.each do |k, v|
-				json.each do |a|
-					if a.has_value?(v)
-						exchanges << a
-						names << k
-					end
-				end
-		  	end
-
-		  	return true, exchanges, names
+	  open(url) do |d|
+	    json = JSON.parse(d.read)
+	    $top.each do |k, v|
+		json.each do |a|
+		  if a.has_value?(v)
+		    exchanges << a
+		    names << k
+		  end
 		end
+	    end
+
+	  return true, exchanges, names
+	  end
 	rescue SocketError => e
 		return false, "bity Error: Could not connect to bitcoincharts API."
 
@@ -48,17 +48,17 @@ end
 
 def getEx(url, symbol)
 	begin
-		open(url) do |d| 
-		  json = JSON.parse(d.read)
-		  json.each do |a|
-		  	a.each do |k, v|
-		  		if k == "symbol" and v == symbol
-		  			return true, a		  			
-		  		end
-		  	end
-		  end
-		  return false, "bity Error: Symbol not found in bitcoin API."
+	  open(url) do |d| 
+	    json = JSON.parse(d.read)
+            json.each do |a|
+	      a.each do |k, v|
+	        if k == "symbol" and v == symbol
+		  return true, a		  			
 		end
+	      end
+	    end
+	    return false, "bity Error: Symbol not found in bitcoin API."
+	   end
 	rescue SocketError => e 
 		return false, "bity Error: Could not connect to bitcoincharts API."
 	end
