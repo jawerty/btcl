@@ -16,6 +16,12 @@ Install via rubygems
 $ gem install btcl
 ```
 
+Install via Docker
+```
+$ docker build -t btcl github.com/jawerty/btcl
+$ docker run btcl
+```
+
 # Usage
 Retrieve the prices from the top exchanges.
 ```
