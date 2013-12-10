@@ -41,13 +41,13 @@ or
 
 ```
 $ btcl mercadobitcoin -v
-```
 ---------------------
 | high | 2622.0     |
 | low  | 2300.60031 |
 | last | 2549.0     |
 | buy  | 2531.0     |
 | sell | 2548.0     |
+```
 
 # Contact
 If you would like to contact me for further information on the project, see the info below.
