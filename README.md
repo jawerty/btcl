@@ -2,6 +2,7 @@
 Follow Bitcoin markets from your terminal.
 
 btcl is a cli for retrieving Bitcoin prices from your command-line instantly. You can choose to get the top market or retrieve a single price quote with the exchange symbol from bitcoincharts.
+This fork adds support for brazilian exchange trader MercadoBitcoin.
 
 ```
 $ ruby btcl.rb mercadobitcoin -v
@@ -11,11 +12,6 @@ $ ruby btcl.rb mercadobitcoin -v
 | last | 2549.0     |
 | buy  | 2531.0     |
 | sell | 2548.0     |
-```
-
-# Install
-```
-$ git clone https://github.com/arianpasquali/btcl.git
 ```
 
 # Usage
@@ -64,4 +60,4 @@ $ ruby btcl.rb mercadobitcoin -v
 ```
 
 # Contact
-This is a fork from jawerty (https://github.com/jawerty/btcl).
+This is a fork based on jawerty's work (https://github.com/jawerty/btcl).
