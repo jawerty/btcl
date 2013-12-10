@@ -26,6 +26,29 @@ $ docker run btcl
 ```
 
 # Usage
+
+Retrieve the prices from the top exchanges.
+
+```
+$ btcl
+
+------------------------------------------
+|         Exchange          |   Price    |
+------------------------------------------
+| Mercado Bitcoin (Reais)   | 2545.0     |
+| BTC CHINA                 | 5900.0     |
+| Mt. Gox USA               | 1022.0     |
+| BitStamp                  | 964.87     |
+| btc-e                     | 949.0      |
+| Mt.Gox EUROPE             | 739.0      |
+| Mt.Gox JAPAN              | 101829.414 |
+| bitcoin.de                | 683.4      |
+| Bitcurex                  | 2969.85    |
+| Canadian Virtual Exchange | 954.0      |
+| Mt.Gox UK                 | 624.994    |
+------------------------------------------
+```
+
 Quickly retrieve the ask price from a single exchange. The first argument is the symbol used on bitcoincharts.com (see all market symbols at bitcoincharts.com/markets/).
 ```
 $ btcl mercadobitcoin

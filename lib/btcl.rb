@@ -122,10 +122,17 @@ when nil
   	puts info[1]
   else
   	table.head = ["Exchange", "Price"]
-	info[1].each_with_index do |quote, i|
-		message = "%s" % quote["ask"]
-	  	verbose_message =  "high :: %s\t\tlow :: %s\nask :: %s\t\tbid :: %s\nclose :: %s\t\t\tavg :: %s" % [quote["high"], quote["low"], quote["ask"], quote["bid"], quote["close"], quote["avg"]]
-	  	table.rows << [info[2][i], message]
+    mercadobitcoin_info = getMercadoBitcoin()
+    if mercadobitcoin_info[0] == false
+    	puts mercadobitcoin_info[1]
+    else
+      table.rows << ["Mercado Bitcoin (Reais)", mercadobitcoin_info[1]["buy"]]
+    
+    	info[1].each_with_index do |quote, i|
+    		message = "%s" % quote["ask"]
+    	  	verbose_message =  "high :: %s\t\tlow :: %s\nask :: %s\t\tbid :: %s\nclose :: %s\t\t\tavg :: %s" % [quote["high"], quote["low"], quote["ask"], quote["bid"], quote["close"], quote["avg"]]
+    	  	table.rows << [info[2][i], message]
+        end
 	end
 
 	puts table.to_s
@@ -142,7 +149,8 @@ when "mercadobitcoin"
     quote = info[1]
     message = "%s" % quote["buy"]
     table.rows = [["high", quote["high"].to_s],["low", quote["low"]], ["last", quote["last"]],["buy", quote["buy"]], ["sell", quote["sell"]]]
-    if options[:verbose]
+  
+    if options[:verbose]            
     	puts table.to_s
     else
       puts message
