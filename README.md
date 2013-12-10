@@ -6,8 +6,13 @@ Follow Bitcoin markets from your terminal.
 btcl is a cli for retrieving Bitcoin prices from your command-line instantly. You can choose to get the top market or retrieve a single price quote with the exchange symbol from bitcoincharts.
 
 ```
-$ btcl mtgoxUSD
-847.0
+$ btcl btcl.rb mercadobitcoin -v
+---------------------
+| high | 2622.0     |
+| low  | 2300.60031 |
+| last | 2549.0     |
+| buy  | 2531.0     |
+| sell | 2548.0     |
 ```
 
 # Install
@@ -18,35 +23,31 @@ $ gem install btcl
 
 Install via Docker
 ```
-$ docker build -t btcl github.com/jawerty/btcl
+$ docker build -t btcl github.com/arianpasquali/btcl
 $ docker run btcl
 ```
 
 # Usage
-Retrieve the prices from the top exchanges.
-```
-$ btcl
-```
-![Alt text](/public/1.png)
-
 Quickly retrieve the ask price from a single exchange. The first argument is the symbol used on bitcoincharts.com (see all market symbols at bitcoincharts.com/markets/).
 ```
-$ btcl mtgoxUSD
-847.0
+$ btcl mercadobitcoin
+2531.0
 ```
-![Alt text](/public/2.png)
-
 Get more prices.
 ```
-$ btcl mtgoxUSD --verbose
+$ btcl mercadobitcoin --verbose
 ```
-
 or 
 
 ```
-$ btcl mtgoxUSD -v
+$ btcl mercadobitcoin -v
 ```
-![Alt text](/public/3.png)
+---------------------
+| high | 2622.0     |
+| low  | 2300.60031 |
+| last | 2549.0     |
+| buy  | 2531.0     |
+| sell | 2548.0     |
 
 # Contact
 If you would like to contact me for further information on the project, see the info below.
