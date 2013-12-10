@@ -6,6 +6,7 @@ require "json"
 require 'text-table'
 
 $top = {
+  "Mercado Bitcoin - Brasil" => "mercadobitcoin",
 	"BTC CHINA" => "btcnCNY", 
 	"Mt. Gox USA" => "mtgoxUSD", 
 	"BitStamp" => "bitstampUSD",
@@ -23,6 +24,19 @@ table = Text::Table.new :horizontal_padding    => 1,
 			                :horizontal_boundary   => '|',
 			                :boundary_intersection => '-'
 
+def getMercadoBitcoin()
+  url = "https://www.mercadobitcoin.com.br/api/ticker/"
+
+	begin
+	  open(url) do |d|
+	    json = JSON.parse(d.read)
+  		return true, json["ticker"]
+    end
+  end
+	rescue SocketError => e 
+		return false, "bity Error: Could not connect to MercadoBitcoin API."
+	end
+  
 def getTop(url)
 	exchanges = []
 	names = []
@@ -74,6 +88,7 @@ OptionParser.new do |opt|
   opt.separator  "\tView all symbols at http://bitcoincharts.com/markets/"
   opt.separator  "\t*Popular markets below*"
   opt.separator  ""
+  opt.separator  "\tmercadobitcoin - Mercado Bitcoin - Brasil"
   opt.separator  "\tmtgoxUSD - Mt.Gox USA"
   opt.separator  "\tbtcnCHY - BTC CHINA"
   opt.separator  "\tbitstampUSD - BitStamp USA"
@@ -95,6 +110,7 @@ OptionParser.new do |opt|
 end.parse!
 
 case ARGV[0]
+
 when nil
   info = getTop("http://api.bitcoincharts.com/v1/markets.json")
   if options[:verbose]
@@ -114,6 +130,26 @@ when nil
 
 	puts table.to_s
   end
+
+when "mercadobitcoin"
+  info = getMercadoBitcoin()
+  
+  if info[0] == false
+  	puts info[1]
+    
+  elsif info[0] == true
+  
+    quote = info[1]
+    message = "%s" % quote["buy"]
+    table.rows = [["high", quote["high"].to_s],["low", quote["low"]], ["last", quote["last"]],["buy", quote["buy"]], ["sell", quote["sell"]]]
+    if options[:verbose]
+    	puts table.to_s
+    else
+      puts message
+    end    
+  end
+
+
 else
   info = getEx("http://api.bitcoincharts.com/v1/markets.json", ARGV[0])
   if info[0] == false
