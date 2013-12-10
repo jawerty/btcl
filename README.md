@@ -1,8 +1,6 @@
 # btcl
 Follow Bitcoin markets from your terminal.
 
-<img src="http://bitcoin.org/img/opengraph.png" width="100" height="100"></img>
-
 btcl is a cli for retrieving Bitcoin prices from your command-line instantly. You can choose to get the top market or retrieve a single price quote with the exchange symbol from bitcoincharts.
 
 ```
@@ -50,12 +48,4 @@ $ btcl mercadobitcoin -v
 ```
 
 # Contact
-If you would like to contact me for further information on the project, see the info below.
-
-Email: jawerty210@gmail.com
-
-Github: jawerty
-
-Twitter: @jawerty
-
-Blog: <http://jawerty.github.io>
+This is a fork from jawerty (https://github.com/jawerty/btcl).
