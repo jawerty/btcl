@@ -5,6 +5,7 @@ require 'net/http'
 require "json"
 require 'text-table'
 
+#btcl pre-determines thte top btc exchanges
 $top = {
 	"BTC CHINA" => "btcnCNY", 
 	"Mt. Gox USA" => "mtgoxUSD", 
