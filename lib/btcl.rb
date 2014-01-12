@@ -42,8 +42,7 @@ def getTop(url)
 	  return true, exchanges, names
 	  end
 	rescue SocketError => e
-		return false, "bity Error: Could not connect to bitcoincharts API."
-
+	  return false, "bity Error: Could not connect to bitcoincharts API."
 	end
 end
 
@@ -108,9 +107,9 @@ when nil
   else
   	table.head = ["Exchange", "Price"]
 	info[1].each_with_index do |quote, i|
-		message = "%s" % quote["ask"]
-	  	verbose_message =  "high :: %s\t\tlow :: %s\nask :: %s\t\tbid :: %s\nclose :: %s\t\t\tavg :: %s" % [quote["high"], quote["low"], quote["ask"], quote["bid"], quote["close"], quote["avg"]]
-	  	table.rows << [info[2][i], message]
+	  message = "%s" % quote["ask"]
+	  verbose_message =  "high :: %s\t\tlow :: %s\nask :: %s\t\tbid :: %s\nclose :: %s\t\t\tavg :: %s" % [quote["high"], quote["low"], quote["ask"], quote["bid"], quote["close"], quote["avg"]]
+	  table.rows << [info[2][i], message]
 	end
 
 	puts table.to_s
@@ -124,9 +123,9 @@ else
   	message = "%s" % quote["ask"]
   	table.rows = [["high", quote["high"].to_s],["low", quote["low"]], ["ask", quote["ask"]], ["bid", quote["bid"]], ["close", quote["close"]], ["avg", quote["avg"]] ]
   	if options[:verbose]
-  		puts table.to_s
+  	  puts table.to_s
   	else 
-  		puts message
+  	  puts message
   	end
   end
 end
